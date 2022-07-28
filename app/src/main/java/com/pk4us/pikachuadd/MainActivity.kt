@@ -1,15 +1,19 @@
 package com.pk4us.pikachuadd
 
+import CategoryAdapter
 import  androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+import com.pk4us.pikachuadd.adapters.ContentManager
 import com.pk4us.pikachuadd.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private var adapter: CategoryAdapter? = null
     private var interAd: InterstitialAd? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,12 +21,19 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initAdMob()
-        (application as AppMainState).showAdIfAvailable(this){
-            Toast.makeText(this, "Start app", Toast.LENGTH_LONG).show()
-        }
-        binding.button.setOnClickListener {
-            showInterAd()
-        }
+        (application as AppMainState).showAdIfAvailable(this){}
+        initRcView()
+
+    }
+
+    private fun initRcView() = with(binding){
+        adapter = CategoryAdapter()
+        rcViewCat.layoutManager = LinearLayoutManager(
+            this@MainActivity,
+            LinearLayoutManager.HORIZONTAL,
+            false)
+        rcViewCat.adapter = adapter
+        adapter?.submitList(ContentManager.list)
     }
 
     override fun onResume() {
