@@ -11,14 +11,15 @@ import com.pk4us.pikachuadd.adapters.ContentManager
 import com.pk4us.pikachuadd.databinding.CategoryItemBinding
 
 
-class CategoryAdapter : ListAdapter<String, CategoryAdapter.Holder>(Comparator()) {
+class CategoryAdapter (var listener:Listener): ListAdapter<String, CategoryAdapter.Holder>(Comparator()) {
 
     class Holder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding = CategoryItemBinding.bind(view)
-        fun setData(text: String) = with(binding){
+        fun setData(text: String,listener: Listener) = with(binding){
             tvCatTitle.text = text
             cardViewCat.backgroundTintList = ColorStateList
                 .valueOf(Color.parseColor(ContentManager.colorList[adapterPosition]))
+            itemView.setOnClickListener{listener.onClick(adapterPosition)}
         }
     }
 
@@ -39,8 +40,13 @@ class CategoryAdapter : ListAdapter<String, CategoryAdapter.Holder>(Comparator()
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.setData(getItem(position))
+        holder.setData(getItem(position),listener)
     }
 
+    interface Listener{
+        fun onClick(pos:Int){
+
+        }
+    }
 
 }
