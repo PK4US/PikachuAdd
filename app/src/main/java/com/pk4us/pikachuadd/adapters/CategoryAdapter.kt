@@ -17,8 +17,7 @@ class CategoryAdapter (var listener:Listener): ListAdapter<String, CategoryAdapt
         private val binding = CategoryItemBinding.bind(view)
         fun setData(text: String,listener: Listener) = with(binding){
             tvCatTitle.text = text
-            cardViewCat.backgroundTintList = ColorStateList
-                .valueOf(Color.parseColor(ContentManager.colorList[adapterPosition]))
+            cardViewCat.backgroundTintList = ColorStateList.valueOf(Color.parseColor(ContentManager.colorList[adapterPosition]))
             itemView.setOnClickListener{listener.onClick(adapterPosition)}
         }
     }
@@ -48,5 +47,4 @@ class CategoryAdapter (var listener:Listener): ListAdapter<String, CategoryAdapt
 
         }
     }
-
 }

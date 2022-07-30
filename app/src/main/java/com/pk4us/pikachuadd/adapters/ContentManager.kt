@@ -2,9 +2,7 @@ package com.pk4us.pikachuadd.adapters
 
 object ContentManager {
     val list = arrayListOf(
-        "Фразы философов",
-        "Предсказания",
-        "Мотивация",
+        "Цитаты и фразы",
         "Любовь",
         "Слово дня"
     )

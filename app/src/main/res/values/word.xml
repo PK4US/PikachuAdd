@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="word">
+        <item>Огонь|</item>
+        <item>Погода|</item>
+        <item>Космос|</item>
+        <item>Сметана|</item>
+        <item>Ролтон|</item>
+        <item>Пельмешки|</item>
+        <item>Девушка|</item>
+        <item>Парень|</item>
+        <item>ДОТААААА|</item>
+        <item>РУСНЯ|</item>
+        <item>Лев|</item>
+        <item>Утро|</item>
+        <item>Жопа|</item>
+        <item>Секс|</item>
+        <item>Духи|</item>
+        <item>Музыка|</item>
+        <item>Еда|</item>
+        <item>Лето|</item>
+        <item>Вино|</item>
+
+    </string-array>
+</resources>

@@ -41,5 +41,7 @@ object MainConst {
     )
     val arrayList = listOf(
         R.array.philosophy_array,
+        R.array.love,
+        R.array.word,
     )
 }
